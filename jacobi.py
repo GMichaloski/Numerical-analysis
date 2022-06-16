@@ -3,12 +3,12 @@ import math
 
 def update_vector(matrix,vector):
     answer_vector = np.zeros(vector.size)
-    for line in range(vector.size):
-        for column in range(vector.size):
-            if (line != column):
-                answer_vector[column] += matrix[line,column] * vector[line]
-            else:
+    for column in range(vector.size):
+        for line in range(vector.size):
+            if (column == line):
                 answer_vector[column] += matrix[line,column]
+            else:
+                answer_vector[column] += matrix[line,column] * vector[line]
     return answer_vector
     
 # NOTE: This algorithm is not 100% reliable, as it may converge to the wrong number
